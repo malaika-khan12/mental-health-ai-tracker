@@ -4,6 +4,9 @@ import Navbar from './components/Navbar';
 export const metadata = {
   title: 'MindEase - Your Mental Health Companion',
   description: 'Track moods, view insights, and improve mental wellness with AI.',
+  icons: {
+    icon: '/images/lotus.png',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
