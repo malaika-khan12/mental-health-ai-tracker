@@ -11,7 +11,7 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import { createClient } from '@supabase/supabase-js';
-import { sendMessageToN8N } from '@/app/actions/sendMessage';
+import { sendMessage } from "@/app/actions/sendMessage";
 
 const supabaseUrl = 'https://iiqpufhlgejhvicwqmor.supabase.co';
 const supabaseKey =
@@ -42,7 +42,7 @@ export default function Dashboard() {
         if (latestEntry) {
           try {
             const prompt = `The user is feeling ${latestEntry.mood}. Their journal says: "${latestEntry.feedback}". Suggest a short mental health recommendation.`;
-            const result = await sendMessageToN8N(prompt);
+            const result = await sendMessage(prompt);
             setRecommendation(result?.output || 'No suggestion received');
           } catch (err) {
             console.error('AI fetch error:', err);
